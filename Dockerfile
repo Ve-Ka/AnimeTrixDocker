@@ -1,4 +1,4 @@
-FROM node:14-alpine AS BUILDER
+FROM node:18.14.1-alpine AS BUILDER
 ENV WEB_ROOT=/app/AnimeTrix
 RUN apk add --no-cache git curl
 RUN curl -sf https://gobinaries.com/tj/node-prune | sh
@@ -12,7 +12,7 @@ RUN rm -rf .git .github .gitignore .dockerignore .vscode LICENSE README.md
 RUN node-prune node_modules
 RUN chmod -R 777 .
 
-FROM node:14-alpine
+FROM node:18.14.1-alpine
 ENV WEB_ROOT=/app/AnimeTrix
 COPY entry.sh /entry.sh
 RUN chmod u+x /entry.sh
