@@ -14,8 +14,6 @@ RUN chmod -R 777 .
 
 FROM node:14-alpine
 ENV WEB_ROOT=/app/AnimeTrix
-COPY entry.sh /entry.sh
-RUN chmod u+x /entry.sh
 RUN mkdir /app
 RUN mkdir $WEB_ROOT
 WORKDIR $WEB_ROOT
